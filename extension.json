@@ -1,0 +1,9 @@
+{
+    "name": "Financeiro",
+    "description": "Gestão financeira de motoboys para Expresso Neves",
+    "version": "0.1.0",
+    "author": "Expresso Neves",
+    "fa_icon": "money-bill-wave",
+    "engine": "@fleetbase/financeiro-engine",
+    "api": "@fleetbase/financeiro-api"
+}

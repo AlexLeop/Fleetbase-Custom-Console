@@ -1,0 +1,33 @@
+<EmberWormhole @to="sidebar-menu-items">
+    <Layout::Sidebar::Item @route="financeiro.home" @icon="money-bill-wave">
+        Dashboard
+    </Layout::Sidebar::Item>
+
+    <Layout::Sidebar::Panel @title="Operações" @open={{true}}>
+        <Layout::Sidebar::Item @route="financeiro.escalas" @icon="calendar-alt">
+            Escalas
+        </Layout::Sidebar::Item>
+        <Layout::Sidebar::Item @route="financeiro.lancamentos" @icon="file-invoice-dollar">
+            Lançamentos
+        </Layout::Sidebar::Item>
+    </Layout::Sidebar::Panel>
+
+    <Layout::Sidebar::Panel @title="Financeiro" @open={{true}}>
+        <Layout::Sidebar::Item @route="financeiro.calculo" @icon="calculator">
+            Cálculo Semanal
+        </Layout::Sidebar::Item>
+        <Layout::Sidebar::Item @route="financeiro.creditos" @icon="hand-holding-usd">
+            Créditos
+        </Layout::Sidebar::Item>
+    </Layout::Sidebar::Panel>
+
+    <Layout::Sidebar::Panel @title="Configurações" @open={{true}}>
+        <Layout::Sidebar::Item @route="financeiro.taxas" @icon="percentage">
+            Taxas
+        </Layout::Sidebar::Item>
+    </Layout::Sidebar::Panel>
+</EmberWormhole>
+
+<Layout::Section::Container>
+    {{outlet}}
+</Layout::Section::Container>

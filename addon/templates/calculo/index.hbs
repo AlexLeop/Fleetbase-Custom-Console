@@ -1,0 +1,56 @@
+<Layout::Section::Body class="overflow-y-scroll h-full">
+    <div class="p-6">
+        <h2 class="text-xl font-semibold text-white mb-6">Cálculo Semanal</h2>
+
+        <div class="bg-gray-800 rounded-lg p-4 mb-6">
+            <div class="grid grid-cols-3 gap-4">
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Motoboy</label>
+                    <select class="w-full bg-gray-700 border border-gray-600 text-white rounded px-3 py-2" {{on "change" this.onDriverChange}}>
+                        <option value="">Selecione...</option>
+                        {{#each this.drivers as |driver|}}
+                            <option value={{driver.id}}>{{driver.name}}</option>
+                        {{/each}}
+                    </select>
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Semana de</label>
+                    <input type="date" class="w-full bg-gray-700 border border-gray-600 text-white rounded px-3 py-2" {{on "change" this.onWeekStartChange}} />
+                </div>
+                <div>
+                    <label class="block text-sm text-gray-400 mb-1">Até</label>
+                    <input type="date" class="w-full bg-gray-700 border border-gray-600 text-white rounded px-3 py-2" {{on "change" this.onWeekEndChange}} />
+                </div>
+            </div>
+            <div class="flex justify-end mt-4">
+                <button type="button" class="bg-blue-600 hover:bg-blue-700 text-white font-medium rounded px-4 py-2 transition-colors" {{on "click" this.calculate}}>
+                    Calcular
+                </button>
+            </div>
+        </div>
+
+        {{#if this.result}}
+            <div class="bg-gray-800 rounded-lg p-4">
+                <h3 class="text-lg font-semibold text-white mb-4">Resultado — {{this.result.driver_name}}</h3>
+                <div class="grid grid-cols-4 gap-4 mb-4">
+                    <div class="text-center p-3 rounded bg-gray-700">
+                        <div class="text-sm text-gray-400">Dias</div>
+                        <div class="text-xl font-bold text-white">{{this.result.days_worked}}</div>
+                    </div>
+                    <div class="text-center p-3 rounded bg-gray-700">
+                        <div class="text-sm text-gray-400">Bruto</div>
+                        <div class="text-xl font-bold text-green-400">R$ {{this.result.gross_revenue}}</div>
+                    </div>
+                    <div class="text-center p-3 rounded bg-gray-700">
+                        <div class="text-sm text-gray-400">Deduções</div>
+                        <div class="text-xl font-bold text-red-400">R$ {{this.result.deductions}}</div>
+                    </div>
+                    <div class="text-center p-3 rounded bg-blue-900">
+                        <div class="text-sm text-gray-300">Líquido</div>
+                        <div class="text-2xl font-bold text-white">R$ {{this.result.net_pay}}</div>
+                    </div>
+                </div>
+            </div>
+        {{/if}}
+    </div>
+</Layout::Section::Body>

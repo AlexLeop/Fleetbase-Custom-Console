@@ -1,0 +1,17 @@
+/* financeiro-engine.css
+ * Minimal styles specific to the Financeiro module.
+ * All base styles come from @fleetbase/ember-ui.
+ */
+
+.financeiro-kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1rem;
+}
+
+.financeiro-result-highlight {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 6px;
+    padding: 1rem;
+}

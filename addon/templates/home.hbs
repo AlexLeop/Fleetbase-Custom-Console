@@ -1,0 +1,54 @@
+<Layout::Section::Body class="overflow-y-scroll h-full">
+    <div class="p-6">
+        <h2 class="text-xl font-semibold text-white mb-6">Financeiro — Dashboard</h2>
+
+        <div class="grid grid-cols-4 gap-4 mb-6">
+            <div class="bg-gray-800 rounded-lg p-4">
+                <div class="text-sm text-gray-400">Motoboys Ativos</div>
+                <div class="text-2xl font-bold text-white mt-1">{{this.totalDrivers}}</div>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4">
+                <div class="text-sm text-gray-400">Escalas Esta Semana</div>
+                <div class="text-2xl font-bold text-white mt-1">{{this.totalSchedules}}</div>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4">
+                <div class="text-sm text-gray-400">Total Lançamentos</div>
+                <div class="text-2xl font-bold text-white mt-1">R$ {{this.totalEntries}}</div>
+            </div>
+            <div class="bg-gray-800 rounded-lg p-4">
+                <div class="text-sm text-gray-400">Créditos Pendentes</div>
+                <div class="text-2xl font-bold text-white mt-1">R$ {{this.totalCredits}}</div>
+            </div>
+        </div>
+
+        <div class="bg-gray-800 rounded-lg p-4">
+            <h3 class="text-lg font-semibold text-white mb-4">Últimos Lançamentos</h3>
+            {{#if this.recentEntries.length}}
+                <table class="w-full text-sm text-left text-gray-300">
+                    <thead class="text-xs text-gray-400 uppercase border-b border-gray-700">
+                        <tr>
+                            <th class="px-4 py-3">Data</th>
+                            <th class="px-4 py-3">Motoboy</th>
+                            <th class="px-4 py-3">Tipo</th>
+                            <th class="px-4 py-3">Valor</th>
+                            <th class="px-4 py-3">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each this.recentEntries as |entry|}}
+                            <tr class="border-b border-gray-700 hover:bg-gray-750">
+                                <td class="px-4 py-3">{{entry.date}}</td>
+                                <td class="px-4 py-3">{{entry.driver_name}}</td>
+                                <td class="px-4 py-3">{{entry.type}}</td>
+                                <td class="px-4 py-3 font-mono">R$ {{entry.amount}}</td>
+                                <td class="px-4 py-3">{{entry.description}}</td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            {{else}}
+                <p class="text-gray-500 text-center py-8">Nenhum lançamento recente.</p>
+            {{/if}}
+        </div>
+    </div>
+</Layout::Section::Body>

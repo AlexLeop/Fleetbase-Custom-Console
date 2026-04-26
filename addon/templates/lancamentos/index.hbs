@@ -1,0 +1,36 @@
+<Layout::Section::Body class="overflow-y-scroll h-full">
+    <div class="p-6">
+        <div class="flex items-center justify-between mb-6">
+            <h2 class="text-xl font-semibold text-white">Lançamentos Financeiros</h2>
+        </div>
+
+        <div class="bg-gray-800 rounded-lg">
+            {{#if this.entries.length}}
+                <table class="w-full text-sm text-left text-gray-300">
+                    <thead class="text-xs text-gray-400 uppercase border-b border-gray-700">
+                        <tr>
+                            <th class="px-4 py-3">Data</th>
+                            <th class="px-4 py-3">Motoboy</th>
+                            <th class="px-4 py-3">Tipo</th>
+                            <th class="px-4 py-3">Valor</th>
+                            <th class="px-4 py-3">Descrição</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each this.entries as |entry|}}
+                            <tr class="border-b border-gray-700 hover:bg-gray-750">
+                                <td class="px-4 py-3">{{entry.date}}</td>
+                                <td class="px-4 py-3">{{entry.driver_name}}</td>
+                                <td class="px-4 py-3">{{entry.type}}</td>
+                                <td class="px-4 py-3 font-mono">R$ {{entry.amount}}</td>
+                                <td class="px-4 py-3">{{entry.description}}</td>
+                            </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            {{else}}
+                <p class="text-gray-500 text-center py-8">Nenhum lançamento encontrado.</p>
+            {{/if}}
+        </div>
+    </div>
+</Layout::Section::Body>
